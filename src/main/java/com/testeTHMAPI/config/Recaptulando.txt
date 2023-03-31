@@ -1,0 +1,43 @@
+1- precisa estender de "WebSecurityConfigurerAdapter" para ter acesso
+aos métodos 4 e 5
+---------------------------------------------------------------------------------
+
+2- neste caso eu tive um problema que precizou da anotação "@Lazy",
+a aplicação estava gerando um looping neste pinto onde o "UserService"
+necessitava de outra coisa que também precisava do mesmo, porém,
+para um iniciar era preciso do outro, logo a anotação veio para
+dizer que a variávél só seria iniciada ao ser chamada, evitando
+o erro cíclico durante a compilação
+---------------------------------------------------------------------------------
+
+3- neste caso a função escolhinda foi a "BCrypt", capaz de gerar
+hashs e serem usados para criptografia, uma mesma senha gera hashs
+diferentes que podem ser descriptografado na mesma senha.
+---------------------------------------------------------------------------------
+
+4- tráz os objetos que irão fazer autenticação dos usuários
+---------------------------------------------------------------------------------
+
+5- pega o usuário autenticado no método 4 e verifica se tem autorização
+para acessar o caminho solicitado
+---------------------------------------------------------------------------------
+
+6- neste método get fou usado um DTO para se ter uma classe diferente
+para quando se busca user por ID, onde mostrasse o numero de ocorrencias
+---------------------------------------------------------------------------------
+
+7- anotação que indica a relação entre as tabelas "OneToMany" um para muitos
+se tem um user e várias ocorrencia, também criei a relação entre a ocorrencia
+e o usuário pela variável "userId" presente na ocorrencia e mais um efeito
+de cascata que as ocorrencias sofrerão em "cascata" o mesmo efeito do user
+ao ser deletado
+---------------------------------------------------------------------------------
+
+8- implementa o método do "UserDetailsService" para verificar, nesse
+caso, o email, apesar de a váriável ser descrita como "username".
+
+8.1 - cria uma lista de String para ser o "boolean" referente a se é
+administrador ou não.
+
+8.2 - retorna o usuário com email, senha e role
+---------------------------------------------------------------------------------
